@@ -66,8 +66,8 @@ void HexRead::read(unsigned long initByte, unsigned long int finalByte)
 		// If the final range is greated than greater than the total range
 		// resize gracefully
 		if (finalByte > totalBytes) finalByte = totalBytes;
-		// Now point to the begining of the file
-		file.seekg(0, std::ios::beg);
+		// Now point to the begining of initial byte
+		file.seekg(initByte);
 		std::string contents;
 		contents.resize(finalByte - initByte);
 		file.read(&contents[0], finalByte - initByte);
